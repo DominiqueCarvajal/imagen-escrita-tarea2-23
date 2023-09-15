@@ -9,7 +9,7 @@ let dragging = false;
 let offsetX, offsetY;
 
 function setup() {
-  createCanvas(1200, 800); // Ancho y alto convencionales para un sitio web
+  createCanvas(1500, 600); // Ancho y alto convencionales para un sitio web
 
   // Crear tres círculos y establecer su centro como origen
   circles.push(new Element(width * 0.2, height / 2));
