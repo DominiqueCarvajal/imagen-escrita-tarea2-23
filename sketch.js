@@ -9,7 +9,6 @@ let dragging = false;
 let offsetX, offsetY;
 
 function setup() {
-  // Usar el tamaño de la ventana del navegador
   createCanvas(windowWidth, windowHeight);
 
   // Crear tres círculos y establecer su centro como origen
@@ -19,7 +18,7 @@ function setup() {
 
   // Crear el cuadro de texto
   textBox = createInput();
-  textBox.position(width / 2 - textBoxWidth / 2, height / 2 - textBoxHeight / 2); // Centro de la ventana
+  textBox.position(windowWidth / 2 - textBoxWidth / 2, windowHeight / 2 - textBoxHeight / 2); // Centro de la ventana
   textBox.size(textBoxWidth, textBoxHeight);
   textBox.value("EFECTO TENSOR"); // Establecer el texto fijo dentro del cuadro
   textBox.attribute("readonly", true); // Hacer el cuadro de texto de solo lectura
@@ -32,7 +31,7 @@ function setup() {
   
   // Crear el texto negro en la esquina inferior derecha
   let customText = createDiv("Selecciona una órbita...");
-  customText.position(width - 120, height - 30);
+  customText.position(windowWidth - 120, windowHeight - 30);
   customText.style("color", "#000000"); // Color de texto negro
   customText.style("font-size", "12px"); // Tamaño de fuente pequeño
 }
@@ -178,8 +177,7 @@ function stopDragging() {
   dragging = false;
 }
 
-// Cambiar el tamaño del canvas cuando cambia el tamaño de la ventana
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  textBox.position(width / 2 - textBoxWidth / 2, height / 2 - textBoxHeight / 2);
+  textBox.position(windowWidth / 2 - textBoxWidth / 2, windowHeight / 2 - textBoxHeight / 2);
 }
