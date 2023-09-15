@@ -9,9 +9,8 @@ let dragging = false;
 let offsetX, offsetY;
 
 function setup() {
-  let canvasWidth = 600; // Nueva anchura del lienzo
-  let canvasHeight = 450; // Nueva altura del lienzo
-  createCanvas(canvasWidth, canvasHeight);
+  // Usar el tamaño de la ventana del navegador
+  createCanvas(windowWidth, windowHeight);
 
   // Crear tres círculos y establecer su centro como origen
   circles.push(new Element(width * 0.2, height / 2));
@@ -20,7 +19,7 @@ function setup() {
 
   // Crear el cuadro de texto
   textBox = createInput();
-  textBox.position(width / 2 - textBoxWidth / 2, height / 2 - textBoxHeight / 2); // Centro del canvas
+  textBox.position(width / 2 - textBoxWidth / 2, height / 2 - textBoxHeight / 2); // Centro de la ventana
   textBox.size(textBoxWidth, textBoxHeight);
   textBox.value("EFECTO TENSOR"); // Establecer el texto fijo dentro del cuadro
   textBox.attribute("readonly", true); // Hacer el cuadro de texto de solo lectura
@@ -177,4 +176,10 @@ function startDragging() {
 
 function stopDragging() {
   dragging = false;
+}
+
+// Cambiar el tamaño del canvas cuando cambia el tamaño de la ventana
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  textBox.position(width / 2 - textBoxWidth / 2, height / 2 - textBoxHeight / 2);
 }
