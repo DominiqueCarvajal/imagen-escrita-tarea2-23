@@ -9,7 +9,7 @@ let dragging = false;
 let offsetX, offsetY;
 
 function setup() {
-  createCanvas(2000, 500); // Ancho y alto convencionales para un sitio web
+  createCanvas(windowWidth, windowHeight); // Usar el ancho y alto de la ventana del navegador
 
   // Crear tres círculos y establecer su centro como origen
   circles.push(new Element(width * 0.2, height / 2));
@@ -28,7 +28,7 @@ function setup() {
   textBox.style("border-radius", "5px");
   textBox.mousePressed(startDragging);
   textBox.mouseReleased(stopDragging);
-  
+
   // Crear el texto negro en la esquina inferior derecha
   let customText = createDiv("Selecciona una órbita...");
   customText.position(width - 120, height - 30);
